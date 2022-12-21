@@ -10,7 +10,7 @@ fun main(args: Array<String>) {
     println("nome ${alex.nome}")
     println("cpf ${alex.cpf}")
     println("salario ${alex.salario}")
-    println("bonificacao ${alex.bonificacao()}")
+    println("bonificacao ${alex.bonificacao}")
     println()
 
     val fran = Gerente(
