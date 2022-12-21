@@ -15,8 +15,4 @@ class Gerente(
             return salario * 0.2
         }
 
-    override fun autenticar(senha: String): Boolean {
-        return this.senha == senha
-    }
-
 }

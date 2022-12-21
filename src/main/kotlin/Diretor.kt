@@ -15,8 +15,4 @@ class Diretor(
             return salario + plr
         }
 
-    override fun autenticar(senha: String): Boolean {
-        return this.senha == senha
-    }
-
 }

@@ -9,4 +9,7 @@ abstract class FuncionarioAdmin(
     salario = salario
 ), Autenticavel {
 
+    override fun autenticar(senha: String): Boolean {
+        return this.senha == senha
+    }
 }
