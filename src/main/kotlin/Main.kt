@@ -43,10 +43,17 @@ fun main(args: Array<String>) {
     println("plr ${gui.plr}")
     println()
 
+    val maria = Analista(
+        nome = "Maria",
+        cpf = "111.222.333-00",
+        salario = 3000.0
+    )
+
     val calculadora = CalculadoraBonificacao()
     calculadora.registrar(alex)
     calculadora.registrar(fran)
     calculadora.registrar(gui)
+    calculadora.registrar(maria)
 
     println("Total bonificação ${calculadora.total}")
 
