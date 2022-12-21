@@ -7,8 +7,8 @@ abstract class FuncionarioAdmin(
     nome = nome,
     cpf = cpf,
     salario = salario
-) {
-    fun autenticar(senha: String): Boolean {
+), Autenticavel {
+    override fun autenticar(senha: String): Boolean {
         return this.senha == senha
     }
 }
