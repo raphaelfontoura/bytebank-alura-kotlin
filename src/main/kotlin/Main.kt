@@ -5,15 +5,21 @@ fun main(args: Array<String>) {
 
 }
 
-class Conta {
-    var titular = ""
-    var numero = 0
+class Conta(
+    val titular: String,
+    val numero: Int
+) {
     var saldo = 0.0
         private set
 //        set(valor) {
 //            if (valor > 0) field = valor
 //        }
 //        get(){return field}
+
+//    constructor(titular: String, numero: Int){
+//        this.titular = titular
+//        this.numero = numero
+//    }
 
     fun depositar(valor: Double) {
         if (valor > 0) this.saldo += valor
@@ -43,14 +49,10 @@ class Conta {
 }
 
 fun testaContas() {
-    val contaAlex = Conta()
-    contaAlex.titular = "Alex"
-    contaAlex.numero = 1000
+    val contaAlex = Conta("Alex", 1000)
     contaAlex.depositar(200.0)
 
-    val contaFran = Conta()
-    contaFran.titular = "Fran"
-    contaFran.numero = 1001
+    val contaFran = Conta("Fran", 1001)
     contaFran.depositar(300.0)
 
     println(contaAlex.titular)
