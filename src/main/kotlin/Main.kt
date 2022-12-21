@@ -6,7 +6,7 @@ fun main(args: Array<String>) {
 }
 
 class Conta(
-    val titular: String,
+    var titular: String,
     val numero: Int
 ) {
     var saldo = 0.0
@@ -51,6 +51,7 @@ class Conta(
 fun testaContas() {
     val contaAlex = Conta("Alex", 1000)
     contaAlex.depositar(200.0)
+    contaAlex.titular = "Alex Silva"
 
     val contaFran = Conta("Fran", 1001)
     contaFran.depositar(300.0)
