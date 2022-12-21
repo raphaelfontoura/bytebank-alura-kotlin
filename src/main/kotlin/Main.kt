@@ -23,7 +23,7 @@ fun main(args: Array<String>) {
     println("nome ${fran.nome}")
     println("cpf ${fran.cpf}")
     println("salario ${fran.salario}")
-    println("bonificacao ${fran.bonificacao()}")
+    println("bonificacao ${fran.bonificacao}")
     println("autenticacao ${fran.autenticar("1234#")}")
     println()
 
@@ -38,7 +38,7 @@ fun main(args: Array<String>) {
     println("nome ${gui.nome}")
     println("cpf ${gui.cpf}")
     println("salario ${gui.salario}")
-    println("bonificacao ${gui.bonificacao()}")
+    println("bonificacao ${gui.bonificacao}")
     println("autenticacao ${gui.autenticar("1234#")}")
     println("plr ${gui.plr}")
     println()
