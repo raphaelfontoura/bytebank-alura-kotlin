@@ -1,61 +1,29 @@
 fun main(args: Array<String>) {
     println("Bem vindo ao Bytebank!")
 
-    val alex = Funcionario(
-        nome = "Alex",
-        cpf = "111.222.333-45",
-        salario = 1000.0
+    val contaCorrente = ContaCorrente(
+        titular = "Alex",
+        numero = 1000
     )
 
-    println("nome ${alex.nome}")
-    println("cpf ${alex.cpf}")
-    println("salario ${alex.salario}")
-    println("bonificacao ${alex.bonificacao}")
-    println()
-
-    val fran = Gerente(
-        nome = "Fran",
-        cpf = "111.222.333-67",
-        salario = 2000.0,
-        senha = "1234#"
+    val contaPoupanca = ContaPoupanca(
+        titular = "Fran",
+        numero = 1001
     )
 
-    println("nome ${fran.nome}")
-    println("cpf ${fran.cpf}")
-    println("salario ${fran.salario}")
-    println("bonificacao ${fran.bonificacao}")
-    println("autenticacao ${fran.autenticar("1234#")}")
-    println()
+    contaCorrente.depositar(1000.0)
+    contaPoupanca.depositar(1000.0)
+    println("saldo corrente: ${contaCorrente.saldo}")
+    println("saldo poupança: ${contaPoupanca.saldo}")
 
-    val gui = Diretor(
-        nome = "Guilherme",
-        cpf = "111.222.333-89",
-        salario = 4000.0,
-        senha = "#1234",
-        plr = 200.0
-    )
+    contaCorrente.sacar(100.0)
+    contaPoupanca.sacar(100.0)
+    println("saldo após saque corrente: ${contaCorrente.saldo}")
+    println("saldo após saque poupança: ${contaPoupanca.saldo}")
 
-    println("nome ${gui.nome}")
-    println("cpf ${gui.cpf}")
-    println("salario ${gui.salario}")
-    println("bonificacao ${gui.bonificacao}")
-    println("autenticacao ${gui.autenticar("1234#")}")
-    println("plr ${gui.plr}")
-    println()
-
-    val maria = Analista(
-        nome = "Maria",
-        cpf = "111.222.333-00",
-        salario = 3000.0
-    )
-
-    val calculadora = CalculadoraBonificacao()
-    calculadora.registrar(alex)
-    calculadora.registrar(fran)
-    calculadora.registrar(gui)
-    calculadora.registrar(maria)
-
-    println("Total bonificação ${calculadora.total}")
+    contaCorrente.transferir(100.0, contaPoupanca)
+    println("saldo após transferência corrente: ${contaCorrente.saldo}")
+    println("saldo após transferência poupança: ${contaPoupanca.saldo}")
 
 }
 
