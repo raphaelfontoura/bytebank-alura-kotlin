@@ -3,6 +3,7 @@ class CalculadoraBonificacao {
         private set
 
     fun registrar(funcionario: Funcionario) {
+        println("nome ${funcionario.nome}")
         this.total += funcionario.bonificacao
     }
 
