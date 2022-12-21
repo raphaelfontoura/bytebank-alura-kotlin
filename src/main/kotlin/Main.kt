@@ -7,7 +7,8 @@ fun main(args: Array<String>) {
 
 class Conta(
     var titular: String,
-    val numero: Int
+    val numero: Int,
+    val ativa: Boolean = true
 ) {
     var saldo = 0.0
         private set
@@ -55,6 +56,9 @@ fun testaContas() {
 
     val contaFran = Conta("Fran", 1001)
     contaFran.depositar(300.0)
+
+    val contaJoao = Conta(titular = "João", numero = 1002, ativa = false)
+    println("conta ${contaJoao.titular} está ${if(contaJoao.ativa) "ativa" else "inativa"}")
 
     println(contaAlex.titular)
     println(contaFran.titular)
