@@ -1,12 +1,12 @@
 fun testaContas() {
-    val contaAlex = Conta("Alex", 1000)
+    val contaAlex = ContaCorrente("Alex", 1000)
     contaAlex.depositar(200.0)
     contaAlex.titular = "Alex Silva"
 
-    val contaFran = Conta("Fran", 1001)
+    val contaFran = ContaPoupanca("Fran", 1001)
     contaFran.depositar(300.0)
 
-    val contaJoao = Conta(titular = "João", numero = 1002, ativa = false)
+    val contaJoao = ContaCorrente(titular = "João", numero = 1002)
     println("conta ${contaJoao.titular} está ${if(contaJoao.ativa) "ativa" else "inativa"}")
 
     println(contaAlex.titular)
