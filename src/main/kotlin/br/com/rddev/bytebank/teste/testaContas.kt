@@ -5,15 +5,15 @@ import br.com.rddev.bytebank.model.ContaCorrente
 import br.com.rddev.bytebank.model.ContaPoupanca
 
 fun testaContas() {
-    val alex = Cliente("Alex","111.111.111-11", "1234")
+    val alex = Cliente(nome = "Alex",cpf = "111.111.111-11", senha = "1234")
     val contaAlex = ContaCorrente(alex, 1000)
     contaAlex.depositar(200.0)
 
-    val fran = Cliente("Fran","222.222.222-22","1234")
+    val fran = Cliente(nome = "Fran", cpf = "222.222.222-22", senha = "1234")
     val contaFran = ContaPoupanca(fran, 1001)
     contaFran.depositar(300.0)
 
-    val joao = Cliente("João", "333.333.333-33", "1234")
+    val joao = Cliente(nome = "João", cpf = "333.333.333-33", senha = "1234")
     val contaJoao = ContaCorrente(titular = joao, numero = 1002)
     println("conta ${contaJoao.titular} está ${if(contaJoao.ativa) "ativa" else "inativa"}")
 
