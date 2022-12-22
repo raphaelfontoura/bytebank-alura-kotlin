@@ -1,7 +1,11 @@
+package br.com.rddev.bytebank.model
+
+import br.com.rddev.bytebank.model.Conta
+
 class ContaCorrente(
-    titular: String,
+    titular: Cliente,
     numero: Int
-) :Conta(
+) : Conta(
     titular = titular,
     numero = numero
 ) {

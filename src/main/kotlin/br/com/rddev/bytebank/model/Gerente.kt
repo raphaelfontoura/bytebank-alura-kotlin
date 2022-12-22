@@ -1,3 +1,5 @@
+package br.com.rddev.bytebank.model
+
 class Gerente(
     nome: String,
     cpf: String,

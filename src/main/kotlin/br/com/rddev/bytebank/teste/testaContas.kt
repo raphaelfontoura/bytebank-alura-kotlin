@@ -1,12 +1,20 @@
-fun testaContas() {
-    val contaAlex = ContaCorrente("Alex", 1000)
-    contaAlex.depositar(200.0)
-    contaAlex.titular = "Alex Silva"
+package br.com.rddev.bytebank.teste
 
-    val contaFran = ContaPoupanca("Fran", 1001)
+import br.com.rddev.bytebank.model.Cliente
+import br.com.rddev.bytebank.model.ContaCorrente
+import br.com.rddev.bytebank.model.ContaPoupanca
+
+fun testaContas() {
+    val alex = Cliente("Alex","111.111.111-11", "1234")
+    val contaAlex = ContaCorrente(alex, 1000)
+    contaAlex.depositar(200.0)
+
+    val fran = Cliente("Fran","222.222.222-22","1234")
+    val contaFran = ContaPoupanca(fran, 1001)
     contaFran.depositar(300.0)
 
-    val contaJoao = ContaCorrente(titular = "João", numero = 1002)
+    val joao = Cliente("João", "333.333.333-33", "1234")
+    val contaJoao = ContaCorrente(titular = joao, numero = 1002)
     println("conta ${contaJoao.titular} está ${if(contaJoao.ativa) "ativa" else "inativa"}")
 
     println(contaAlex.titular)

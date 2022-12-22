@@ -1,3 +1,10 @@
+package br.com.rddev.bytebank.teste
+
+import br.com.rddev.bytebank.model.Analista
+import br.com.rddev.bytebank.model.CalculadoraBonificacao
+import br.com.rddev.bytebank.model.Diretor
+import br.com.rddev.bytebank.model.Gerente
+
 fun testaFuncionarios() {
     val alex = Analista(
         nome = "Alex",

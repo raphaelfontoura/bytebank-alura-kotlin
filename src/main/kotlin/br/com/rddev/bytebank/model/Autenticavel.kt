@@ -1,3 +1,5 @@
+package br.com.rddev.bytebank.model
+
 interface Autenticavel {
 
     // ao utilizar este tipo de recurso em uma interface a property será pública.

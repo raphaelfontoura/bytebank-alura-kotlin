@@ -1,3 +1,5 @@
+package br.com.rddev.bytebank.teste
+
 fun sintaxesBases() {
 
     fun sintaxeBase() {

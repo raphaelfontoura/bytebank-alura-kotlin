@@ -1,3 +1,5 @@
+package br.com.rddev.bytebank.model
+
 class Analista(
     nome: String,
     cpf: String,

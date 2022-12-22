@@ -1,3 +1,5 @@
+package br.com.rddev.bytebank.model
+
 class SistemaInterno {
     fun entra(admin: Autenticavel, senha: String) {
         if (admin.autenticar(senha)) {

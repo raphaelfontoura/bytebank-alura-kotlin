@@ -1,5 +1,7 @@
+package br.com.rddev.bytebank.model
+
 abstract class Conta(
-    var titular: String,
+    var titular: Cliente,
     val numero: Int,
     val ativa: Boolean = true
 ) {

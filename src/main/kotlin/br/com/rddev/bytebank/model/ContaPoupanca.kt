@@ -1,5 +1,9 @@
+package br.com.rddev.bytebank.model
+
+import br.com.rddev.bytebank.model.Conta
+
 class ContaPoupanca(
-    titular: String,
+    titular: Cliente,
     numero: Int
 ) : Conta(
     titular = titular,

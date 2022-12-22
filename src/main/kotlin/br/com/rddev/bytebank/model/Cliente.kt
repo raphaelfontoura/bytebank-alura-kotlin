@@ -1,3 +1,5 @@
+package br.com.rddev.bytebank.model
+
 class Cliente(
     val nome: String,
     val cpf: String,
