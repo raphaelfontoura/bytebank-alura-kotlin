@@ -1,3 +1,10 @@
+package br.com.rddev.bytebank.teste
+
+import br.com.rddev.bytebank.model.Cliente
+import br.com.rddev.bytebank.model.Diretor
+import br.com.rddev.bytebank.model.Gerente
+import br.com.rddev.bytebank.model.SistemaInterno
+
 fun testaAutenticacao() {
     val gerente = Gerente(
         nome = "Alex",
@@ -17,7 +24,7 @@ fun testaAutenticacao() {
     val cliente = Cliente(
         nome = "Gui",
         cpf = "333.333.333-44",
-        "pass"
+        senha = "pass"
     )
 
     val sistema = SistemaInterno()

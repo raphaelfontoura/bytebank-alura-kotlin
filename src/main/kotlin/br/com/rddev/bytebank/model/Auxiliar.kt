@@ -1,3 +1,7 @@
+package br.com.rddev.bytebank.model
+
+import br.com.rddev.bytebank.model.Funcionario
+
 class Auxiliar(
     nome: String,
     cpf: String,
