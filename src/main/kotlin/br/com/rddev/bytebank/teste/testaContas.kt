@@ -1,5 +1,6 @@
 package br.com.rddev.bytebank.teste
 
+import br.com.rddev.bytebank.exception.SaldoInsuficienteException
 import br.com.rddev.bytebank.model.Cliente
 import br.com.rddev.bytebank.model.ContaCorrente
 import br.com.rddev.bytebank.model.ContaPoupanca
@@ -35,11 +36,14 @@ fun testaContas() {
     println("conta ${contaAlex.titular} com saldo ${contaAlex.saldo}")
     println("conta ${contaFran.titular} com saldo ${contaFran.saldo}")
 
-    if (contaFran.transferir(30.0, contaAlex)) {
+    try {
+        contaFran.transferir(300.0, contaAlex)
         println("Transferência sucedida")
-    } else {
-        println("Falha na transferência")
+    } catch (e: SaldoInsuficienteException) {
+        e.printStackTrace()
+        println("${e.message}")
     }
+
     println("conta ${contaAlex.titular} com saldo ${contaAlex.saldo}")
     println("conta ${contaFran.titular} com saldo ${contaFran.saldo}")
 
