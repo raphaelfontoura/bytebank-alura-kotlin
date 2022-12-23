@@ -3,7 +3,7 @@ package br.com.rddev.bytebank.model
 abstract class Conta(
     var titular: Cliente,
     val numero: Int,
-    val ativa: Boolean = true
+    var ativa: Boolean = true
 ) {
     var saldo = 0.0
         protected set

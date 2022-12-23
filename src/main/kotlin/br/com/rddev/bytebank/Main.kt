@@ -1,13 +1,17 @@
 package br.com.rddev.bytebank
 
-import br.com.rddev.bytebank.model.Conta
-import br.com.rddev.bytebank.teste.testaContas
+import br.com.rddev.bytebank.model.Endereco
 
 fun main(args: Array<String>) {
 
-    testaContas()
+    imprime(Any())
+    imprime(1)
+    imprime(1.0)
+    imprime(Endereco())
 
-    println("Total de contas: ${Conta.Contador.total}")
+}
 
+fun imprime(valor: Any) {
+    println(valor)
 }
 
