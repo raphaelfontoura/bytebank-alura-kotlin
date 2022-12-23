@@ -6,12 +6,8 @@ class CalculadoraBonificacao {
     var total: Double = 0.0
         private set
 
-    fun registrar(funcionario: Any) {
-//        funcionario as Funcionario
-        if (funcionario is Funcionario) { // smart casting
-            this.total += funcionario.bonificacao
-        }
+    fun registrar(funcionario: Funcionario) {
+        this.total += funcionario.bonificacao
     }
-
 
 }
