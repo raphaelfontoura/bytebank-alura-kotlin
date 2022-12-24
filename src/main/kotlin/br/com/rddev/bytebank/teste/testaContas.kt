@@ -41,11 +41,15 @@ fun testaContas() {
         contaFran.transferir(30.0, contaAlex, "4321")
         println("Transferência sucedida")
     } catch (e: SaldoInsuficienteException) {
-        e.printStackTrace()
         println("${e.message}")
+        e.printStackTrace()
     } catch (e: FalhaAutenticacaoException) {
         println("Falha na Transferência")
         println("${e.message}")
+        e.printStackTrace()
+    } catch (e: Exception) {
+        println("Erro desconhecido")
+        e.printStackTrace()
     }
 
     println("conta ${contaAlex.titular} com saldo ${contaAlex.saldo}")
