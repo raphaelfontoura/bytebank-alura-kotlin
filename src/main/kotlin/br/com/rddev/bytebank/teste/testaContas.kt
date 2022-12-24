@@ -1,5 +1,6 @@
 package br.com.rddev.bytebank.teste
 
+import br.com.rddev.bytebank.exception.FalhaAutenticacaoException
 import br.com.rddev.bytebank.exception.SaldoInsuficienteException
 import br.com.rddev.bytebank.model.Cliente
 import br.com.rddev.bytebank.model.ContaCorrente
@@ -37,10 +38,13 @@ fun testaContas() {
     println("conta ${contaFran.titular} com saldo ${contaFran.saldo}")
 
     try {
-        contaFran.transferir(300.0, contaAlex)
+        contaFran.transferir(30.0, contaAlex, "4321")
         println("Transferência sucedida")
     } catch (e: SaldoInsuficienteException) {
         e.printStackTrace()
+        println("${e.message}")
+    } catch (e: FalhaAutenticacaoException) {
+        println("Falha na Transferência")
         println("${e.message}")
     }
 

@@ -1,4 +1,6 @@
 package br.com.rddev.bytebank.exception
 
-class SaldoInsuficienteException : Exception("Saldo insuficiente") {
+class SaldoInsuficienteException(
+    mensagem: String = "O saldo é insuficiente"
+) : Exception(mensagem) {
 }
