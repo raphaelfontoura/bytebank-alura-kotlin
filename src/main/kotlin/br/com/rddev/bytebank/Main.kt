@@ -1,13 +1,16 @@
 package br.com.rddev.bytebank
 
-import br.com.rddev.bytebank.teste.testaContas
-import br.com.rddev.bytebank.teste.testaTryEIfExpression
+import br.com.rddev.bytebank.teste.testeRecursosNullSafety
 
 fun main(args: Array<String>) {
 
-    testaContas()
+    testeRecursosNullSafety()
 
 }
+
+
+
+
 
 
 
