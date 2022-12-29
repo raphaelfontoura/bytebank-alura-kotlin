@@ -2,12 +2,27 @@ package br.com.rddev.bytebank
 
 fun main(args: Array<String>) {
 
-    val minhaFuncao: () -> Unit = :: teste
-    println(minhaFuncao())
+    val minhaFuncaoLambda: () -> Unit = {
+        println("Executa como lambda")
+    }
+    println(minhaFuncaoLambda())
 
+    val minhaFuncaoAnonima: () -> Unit = fun() {
+        println("Executa como anônima")
+    }
+    println(minhaFuncaoAnonima())
+
+}
+
+fun testaTipoFuncaoClasse() {
     val minhaFuncaoClasse: () -> Unit = Teste() // o tipo pode ser omitido.
     val minhaFuncaoClasse2 = Teste()
     println(minhaFuncaoClasse())
+}
+
+fun testaTipoFuncaoReferencia() {
+    val minhaFuncao: () -> Unit = ::teste
+    println(minhaFuncao())
 }
 
 fun teste() {
