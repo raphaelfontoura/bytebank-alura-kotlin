@@ -1,18 +1,22 @@
 package br.com.rddev.bytebank
 
-import br.com.rddev.bytebank.teste.testeRecursosNullSafety
-
 fun main(args: Array<String>) {
 
-    testeRecursosNullSafety()
+    val minhaFuncao: () -> Unit = :: teste
+    println(minhaFuncao())
 
+    val minhaFuncaoClasse: () -> Unit = Teste() // o tipo pode ser omitido.
+    val minhaFuncaoClasse2 = Teste()
+    println(minhaFuncaoClasse())
 }
 
+fun teste() {
+    println("Executa teste")
+}
 
-
-
-
-
-
-
+class Teste : () -> Unit {
+    override fun invoke() {
+        println("Executa invoke do Teste")
+    }
+}
 
