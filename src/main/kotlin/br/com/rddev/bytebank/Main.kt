@@ -1,5 +1,7 @@
 package br.com.rddev.bytebank
 
+import br.com.rddev.bytebank.example.html.result
+import br.com.rddev.bytebank.example.html.testaTypeSafeHtml
 import br.com.rddev.bytebank.model.*
 
 fun main(args: Array<String>) {
@@ -7,6 +9,8 @@ fun main(args: Array<String>) {
     testaRun()
 
     testaHOFcomReceiver()
+
+    testaTypeSafeHtml()
 
 }
 
