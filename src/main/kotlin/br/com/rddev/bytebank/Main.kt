@@ -47,7 +47,9 @@ fun main(args: Array<String>) {
     getRandomInt()
 
     Endereco(logradouro = "rua vergueiro", numero = 3187, estado = "SP")
+        .also { println("Adicionando o Estado") }
         .apply { cidade = "São Paulo" }
+        .also { println("Imprimindo o endereço em letras maiúsculas") }
         .run { "$logradouro, $numero - $cidade - $estado".uppercase() }
         .let(::println)
 
