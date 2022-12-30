@@ -1,69 +1,77 @@
 package br.com.rddev.bytebank
 
-import br.com.rddev.bytebank.model.Endereco
-import br.com.rddev.bytebank.model.Autenticavel
-import br.com.rddev.bytebank.model.SistemaInterno
-import kotlin.random.Random
+import br.com.rddev.bytebank.model.*
 
 fun main(args: Array<String>) {
 
-    val endereco = Endereco(logradouro = "rua vergueiro", numero = 3185)
-    val enderecoEmMaiusculo = "${endereco.logradouro}, ${endereco.numero}".toUpperCase() //deprecated
-    val enderecoMaiusculo = "${endereco.logradouro}, ${endereco.numero}".uppercase()
+    testaRun()
 
-    val enderecoMaiusculoLet = Endereco(logradouro = "rua vergueiro", numero = 3185)
-        .let { endereco ->
-            "${endereco.logradouro}, ${endereco.numero}".uppercase()
-        }
-        .let(::println)
-//        .let { enderecoMaiusculo ->
-//            println(enderecoMaiusculo)
-//        }
+    testaHOFcomReceiver()
 
-    listOf(
-        Endereco(complemento = "casa", numero = 10),
-        Endereco(numero = 20),
-        Endereco(complemento = "apartamento", numero = 30)
-    )
-        .filter { endereco -> endereco.complemento?.isNotEmpty() ?: false }
-        .let(::println)
+}
 
-    soma(1, 5) {
-        println(it)
-    }
+fun testaHOFcomReceiver() {
+    somaReceiver(1, 5, resultado = {
+        println(this)
+    })
 
     val autenticavel = object : Autenticavel {
         val senha = "1234"
-        override fun autenticar(senha: String) = this.senha == senha
+        override fun autenticar(senha: String): Boolean = this.senha == senha
     }
 
-    SistemaInterno().entra(autenticavel, "1234") {
-        println("realizar pagamento")
-    }
-    SistemaInterno().entra(autenticavel, "1234", autenticado = {
-        println("realizar pagamento")
+    val sistema = SistemaInterno()
+    sistema.entraReceiver(autenticavel, "1234", autenticado = {
+        pagamento()
     })
-
-    getRandomInt()
-
-    Endereco(logradouro = "rua vergueiro", numero = 3187, estado = "SP")
-        .also { println("Adicionando o Estado") }
-        .apply { cidade = "São Paulo" }
-        .also { println("Imprimindo o endereço em letras maiúsculas") }
-        .run { "$logradouro, $numero - $cidade - $estado".uppercase() }
-        .let(::println)
-
 }
 
-fun getRandomInt(): Int {
-    return Random.nextInt(60).also {
-        println("getRandomInt() generated value $it")
+fun somaReceiver(a: Int, b: Int, resultado: Int.() -> Unit) {
+    val total = a + b
+    total.resultado()
+}
+
+fun testaRun() {
+    val taxaAnual = 0.05
+    val taxaMensal = taxaAnual / 12
+    println("taxa mensal $taxaMensal")
+
+    val contaPoupanca = ContaPoupanca(Cliente(nome = "Alex", cpf = "111.111.111-11", senha = "1234"), 1000)
+
+
+    contaPoupanca
+        .run {
+            depositar(1000.0)
+            saldo * taxaMensal
+        }.let { rendimentoMensal ->
+            println(rendimentoMensal)
+        }
+
+    val rendimentoAnual = run {
+        var saldo = contaPoupanca.saldo
+        repeat(12) {
+            saldo += saldo * taxaMensal
+        }
+        saldo
+    }
+
+    println(rendimentoAnual)
+}
+
+fun testaWith() {
+    with(Endereco()) {
+        logradouro = "rua vergueiro"
+        numero = 3185
+        bairro = "Vila Mariana"
+        cidade = "São Paulo"
+        estado = "SP"
+        cep = "02310-063"
+        complemento = "Apartamento"
+        completo()
+    }.let { enderecoCompleto: String ->
+        println(enderecoCompleto)
     }
 }
 
-fun soma(a: Int, b: Int, resultado: (Int) -> Unit) {
-    println("antes da soma")
-    resultado(a + b)
-    println("depois da soma")
-}
+
 
