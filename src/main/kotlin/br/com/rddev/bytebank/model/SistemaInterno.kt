@@ -1,9 +1,10 @@
 package br.com.rddev.bytebank.model
 
 class SistemaInterno {
-    fun entra(admin: Autenticavel, senha: String) {
+    fun entra(admin: Autenticavel, senha: String, autenticado: () -> Unit = {}) {
         if (admin.autenticar(senha)) {
             println("Bem vindo ao Bytebank")
+            autenticado()
         } else {
             println("Falha na autenticação")
         }
